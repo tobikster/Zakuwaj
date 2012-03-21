@@ -1,0 +1,15 @@
+Połączenie FTP
+Adres strony: http://www.zakuwaj.yoyo.pl/
+Adres serwera FTP: zakuwaj.yoyo.pl
+Alternatywne adresy serwera FTP: v4.yoyo.pl, 88.198.224.154
+Port: 21
+Użytkownik: zakuwaj.yoyo.pl
+Hasło: hellomoto0000
+
+Połaczenie do bazy MySQL
+Panel PHPMyAdmin: http://mysql4.yoyo.pl/
+Adres serwera MySQL: mysql4.yoyo.pl
+Port: 3306
+Baza danych: db1245023
+Nazwa użytkownika: db1245023
+Hasło: hellomoto0000
