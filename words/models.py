@@ -3,8 +3,8 @@ from django.db import models
 class User(models.Model):
 	login = models.CharField(max_length = 32)
 	name = models.CharField(max_length = 32)
-	email = models.CharField(max_length = 50)
-	description = models.CharField(max_length = 200)
+	email = models.EmailField()
+	description = models.TextField()
 
 class WordsSet(models.Model):
 	creator = models.ForeignKey(User)
