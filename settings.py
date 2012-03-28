@@ -11,15 +11,31 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
+	'remote_mysql': {
+		'ENGINE': 'django.db.backends.mysql',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+		'NAME': 'db1245023',	# Or path to database file if using sqlite3.
+		'USER': 'db1245023',	# Not used with sqlite3.
+		'PASSWORD': 'hellomoto0000',	# Not used with sqlite3.
+		'HOST': 'mysql4.yoyo.pl',	# Set to empty string for localhost. Not used with sqlite3.
+		'PORT': '3306',	# Set to empty string for default. Not used with sqlite3.
+	},
 	'default': {
+		'ENGINE': 'django.db.backends.mysql',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+		'NAME': 'zakuwaj',	# Or path to database file if using sqlite3.
+		'USER': 'tobikster',	# Not used with sqlite3.
+		'PASSWORD': 'so4ko0l',	# Not used with sqlite3.
+		'HOST': '127.0.0.1',	# Set to empty string for localhost. Not used with sqlite3.
+		'PORT': '',	# Set to empty string for default. Not used with sqlite3.
+	},
+	'local_sqlite': {
 		'ENGINE': 'django.db.backends.sqlite3',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 		'NAME': '/home/tobikster/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/database',	# Or path to database file if using sqlite3.
 		'USER': '',	# Not used with sqlite3.
 		'PASSWORD': '',	# Not used with sqlite3.
 		'HOST': '',	# Set to empty string for localhost. Not used with sqlite3.
 		'PORT': '',	# Set to empty string for default. Not used with sqlite3.
-	}
-}
+	},
+} 
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -107,6 +123,7 @@ TEMPLATE_DIRS = (
 # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+	'templates',
 )
 
 INSTALLED_APPS = (
@@ -145,3 +162,5 @@ LOGGING = {
 		},
 	}
 }
+
+LOGIN_REDIRECT_URL = 'words'
