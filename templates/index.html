@@ -1,4 +1,8 @@
 {% load staticfiles %}
+{% comment %}
+{% load admin_urls %}
+{% load url from future %}
+{% endcomment %}
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
@@ -13,17 +17,32 @@
 				{% block header %}ZAKUWAJ!{% endblock header %}
 			</div>
 			<div id="menu">
-				{% block menu %}<span>MENU</span>{% endblock menu %}
+				{% block menu %}
+				<dl class="menu">
+					<dt>MENU</dt>
+						<dd><a class="menu" href="{% url words.views.index %}">Nauka</a></dd>
+						<dd><a class="menu" href="{% url django.contrib.auth.views.login %}">Logowanie</a></dd>
+					<dt>
+{% comment %}
+					<dt>ADMINISTRACJA</dt>
+						<dd><a class="menu" href="{% url opts|admin_urlname:'index' %}">Panel administracyjny</a></dd>
+					</dt>
+{% endcomment %}
+				</dl>
+				{% endblock menu %}
 			</div>
 			<div id="content">
 				{% block content %}<span>Treść strony</span>{% endblock content %}
 			</div>
 			<div id="footer">
 				{% block footer %}
-				<span class="mail"><a href="mailto:tobikster@gmail.com">Paweł Tobiszewski</a></span>
-				<span class="mail"><a href="mailto:zjamnik@gmail.com">Mateusz Janik</a></span>
+				<a class="mail" href="mailto:tobikster@gmail.com">Paweł Tobiszewski</a>, <a class="mail" href="mailto:zjamnik@gmail.com">Mateusz Janik</a>
 				{% endblock footer %}
 			</div>
 		</div>
 	</body>
 </html>
+
+{% comment %}
+	TODO: Menu trzeba przekopiować na inne podstrony (dynamiczne urle)
+{% endcomment %}

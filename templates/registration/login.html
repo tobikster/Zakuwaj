@@ -1,13 +1,17 @@
+{% extends 'index.html' %}
+
 {% load url from future %}
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE="html">
-<html>
-	<head>
-		<title>
-			Formularz logowania
-		</title>
-	</head>
-	<body>
+
+{% block menu %}
+	<dl class="menu">
+		<dt>MENU</dt>
+			<dd><a class="menu" href="/">Strona główna</a><dd>
+			<dd><a class="menu" href="/words">Nauka</a></dd>
+		<dt>
+	</dl>
+{% endblock menu %}
+
+{% block content %}
 	{% if form.errors %}
 		<p>Podałeś niepoprawny login lub hasło. Spróbuj ponownie.</p>
 	{% endif %}
@@ -27,5 +31,4 @@
 	{% else %}
 		<a href="logout">Wyloguj</a>
 	{% endif %}
-	</body>
-</html>
+{% endblock content %}
