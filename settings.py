@@ -11,25 +11,26 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-	'remote_mysql': {
-		'ENGINE': 'django.db.backends.mysql',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': 'db1245023',	# Or path to database file if using sqlite3.
-		'USER': 'db1245023',	# Not used with sqlite3.
-		'PASSWORD': 'hellomoto0000',	# Not used with sqlite3.
-		'HOST': 'mysql4.yoyo.pl',	# Set to empty string for localhost. Not used with sqlite3.
-		'PORT': '3306',	# Set to empty string for default. Not used with sqlite3.
-	},
+#	'remote_mysql': {
+#		'ENGINE': 'django.db.backends.mysql',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+#		'NAME': 'db1245023',	# Or path to database file if using sqlite3.
+#		'USER': 'db1245023',	# Not used with sqlite3.
+#		'PASSWORD': 'hellomoto0000',	# Not used with sqlite3.
+#		'HOST': 'mysql4.yoyo.pl',	# Set to empty string for localhost. Not used with sqlite3.
+#		'PORT': '3306',	# Set to empty string for default. Not used with sqlite3.
+#	},
+#	'local_mysql': {
+#		'ENGINE': 'django.db.backends.mysql',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+#		'NAME': 'zakuwaj',	# Or path to database file if using sqlite3.
+#		'USER': 'zakuwaj',	# Not used with sqlite3.
+#		'PASSWORD': 'helomoto0000',	# Not used with sqlite3.
+#		'HOST': '127.0.0.1',	# Set to empty string for localhost. Not used with sqlite3.
+#		'PORT': '',	# Set to empty string for default. Not used with sqlite3.
+#	},
 	'default': {
-		'ENGINE': 'django.db.backends.mysql',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': 'zakuwaj',	# Or path to database file if using sqlite3.
-		'USER': 'zakuwaj',	# Not used with sqlite3.
-		'PASSWORD': 'helomoto0000',	# Not used with sqlite3.
-		'HOST': '127.0.0.1',	# Set to empty string for localhost. Not used with sqlite3.
-		'PORT': '',	# Set to empty string for default. Not used with sqlite3.
-	},
-	'local_sqlite': {
 		'ENGINE': 'django.db.backends.sqlite3',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': '/home/tobikster/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/database',	# Or path to database file if using sqlite3.
+#		'NAME': '/home/tobikster/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/database',	# Or path to database file if using sqlite3.
+		'NAME': 'D:/Dane/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/database',
 		'USER': '',	# Not used with sqlite3.
 		'PASSWORD': '',	# Not used with sqlite3.
 		'HOST': '',	# Set to empty string for localhost. Not used with sqlite3.
@@ -89,6 +90,7 @@ STATICFILES_DIRS = (
 # Put strings here, like "/home/html/static" or "C:/www/django/static".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
+	'D:/Dane/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -125,6 +127,11 @@ TEMPLATE_DIRS = (
 # Don't forget to use absolute paths, not relative paths.
 	'templates',
 )
+
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#	'django.contrib.auth.context_processors.auth',
+#	'django.core.contextprocessors.static',
+#)
 
 INSTALLED_APPS = (
 	'django.contrib.auth',

@@ -11,6 +11,7 @@
 	{% if form.errors %}
 		<p>Podałeś niepoprawny login lub hasło. Spróbuj ponownie.</p>
 	{% endif %}
+	{% if not user.is_authenticated %}
 		<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
 		{% csrf_token %}
 			<span>
@@ -23,5 +24,8 @@
 			</span>
 			<input type="submit" value="Zaloguj" />
 		</form>
+	{% else %}
+		<a href="logout">Wyloguj</a>
+	{% endif %}
 	</body>
 </html>

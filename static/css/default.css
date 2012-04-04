@@ -1,0 +1,33 @@
+html, body
+{
+	width: 1004px;
+	margin: 0 auto;
+}
+
+div
+{
+	border: 1px solid;
+	margin: 0;
+}
+
+div#header
+{
+	clear: both;
+}
+
+div#menu
+{
+	width: 197px;
+	float: left;
+}
+
+div#content
+{
+	width: 801px;
+	float: right;
+}	
+
+div#footer
+{
+	clear: both;
+}
