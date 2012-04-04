@@ -20,6 +20,7 @@
 				{% block menu %}
 				<dl class="menu">
 					<dt>MENU</dt>
+						<dd><a class="menu" href="{% url views.index %}">Strona główna</a></dd>
 						<dd><a class="menu" href="{% url words.views.index %}">Nauka</a></dd>
 						<dd><a class="menu" href="{% url django.contrib.auth.views.login %}">Logowanie</a></dd>
 					<dt>

@@ -2,15 +2,6 @@
 
 {% load url from future %}
 
-{% block menu %}
-	<dl class="menu">
-		<dt>MENU</dt>
-			<dd><a class="menu" href="/">Strona główna</a><dd>
-			<dd><a class="menu" href="/words">Nauka</a></dd>
-		<dt>
-	</dl>
-{% endblock menu %}
-
 {% block content %}
 	{% if form.errors %}
 		<p>Podałeś niepoprawny login lub hasło. Spróbuj ponownie.</p>
