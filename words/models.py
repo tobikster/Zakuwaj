@@ -1,31 +1,45 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-#class User(models.Model):
-#	login = models.CharField(max_length = 32)
-#	name = models.CharField(max_length = 32)
-#	email = models.EmailField()
-#	description = models.TextField()
-#	creationDate = models.DateTimeField(auto_now_add = True)
-
-#class WordsUser(User):
-#	description = models.TextField()
-
 class WordsSet(models.Model):
+	name = models.CharField(max_length = 50)
+	sourceLanguage = models.CharField(max_length = 50)
+	destinationLanguage = models.CharField(max_length = 50)
 	creator = models.ForeignKey(User)
 	accessibility = models.CharField(max_length = 3, choices = (('prv', 'private'), ('pub', 'public')))
-#	creationDate = models.DateTimeField(auto_now_add = True)
+	creationDate = models.DateTimeField(auto_now_add = True)
+
+	def __unicode__(self):
+		return self.name + ': [' + self.sourceLanguage + ' -> ' + self.destinationLanguage +']'
+	
+	def getName(self):
+		return self.name
+	
+	def getWords(self):
+		return self.word_set
 
 class Word(models.Model):
 	word = models.CharField(max_length = 255)
 	translation = models.CharField(max_length = 255)
 	wordSet = models.ForeignKey(WordsSet)
+	
+	def __unicode__(self):
+		return self.word + ' -> ' + self.translation
+	
+	def getWord(self):
+		return self.word
+	
+	def getTranslation(self):
+		return self.translation
 
 class UserStatistic(models.Model):
 	user = models.ForeignKey(User)
 
 class Communicator(models.Model):
 	communicator = models.CharField(max_length = 32)
+	
+	def __unicode__(self):
+		return self.communicator
 
 class UserCommunicator(models.Model):
 	user = models.ForeignKey(User)

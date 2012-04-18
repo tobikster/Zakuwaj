@@ -20,9 +20,15 @@
 				{% block menu %}
 				<dl >
 					<dt>MENU</dt>
+<<<<<<< HEAD
 						<dd><a href="{% url views.index %}">Strona główna</a></dd>
 						<dd><a href="{% url words.views.index %}">Nauka</a></dd>
 						<dd><a href="{% url django.contrib.auth.views.login %}">Logowanie</a></dd>
+=======
+						<dd><a class="menu" href="{% url views.index %}">Strona główna</a></dd>
+						<dd><a class="menu" href="{% url words.words_sets_list %}">Nauka</a></dd>
+						<dd><a class="menu" href="{% url django.contrib.auth.views.login %}">Logowanie</a></dd>
+>>>>>>> 6209b66f88976b2eb8d4219c3025304be80e7e9f
 					<dt>
 {% comment %}
 					<dt>ADMINISTRACJA</dt>

@@ -3,5 +3,9 @@
 {% block title %}Słówka{% endblock title %}
 
 {% block content %}
-//TODO: Lista zestawów słówek
+<ul>
+{% for wordSet in wordsset_list %}
+	<li><a href="{% url words.words_set_detail wordSet.id %}">{{ wordSet }}</a></li>
+{% endfor %}
+</ul>
 {% endblock content %}
