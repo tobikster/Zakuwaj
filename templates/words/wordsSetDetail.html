@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block title %}Słówka{% endblock title %}
+
+{% block content %}
+	<h1>{{ wordsSet }}</h1>
+	<ul>
+	{% for word in wordsSet.getWords.all %}
+		<li>{{ word }}</li>
+	{% endfor %}
+	</ul>
+{% endblock content %}

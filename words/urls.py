@@ -1,5 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
+from words.views import index, wordsSetDetail
 
 urlpatterns = patterns('words.views',
-	url(r'^$', 'index'),
+	url(r'^$', index.as_view(), name='words.words_sets_list'),
+	url(r'^wordsset/(?P<pk>[0-9]+)/$', wordsSetDetail.as_view(), name='words.words_set_detail'),
 )
