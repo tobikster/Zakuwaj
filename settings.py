@@ -29,8 +29,7 @@ DATABASES = {
 #	},
 	'default': {
 		'ENGINE': 'django.db.backends.sqlite3',	# Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-		'NAME': '/home/tobikster/Dokumenty.tmp/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/database',	# Or path to database file if using sqlite3.
-#		'NAME': 'D:/Dane/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/database',
+		'NAME': 'C:\Users\Zjamnik\Documents\Politechnika\Semestr 6\Zaawansowane technologie webowe\Zakuwaj\database',	# Or path to database file if using sqlite3.
 		'USER': '',	# Not used with sqlite3.
 		'PASSWORD': '',	# Not used with sqlite3.
 		'HOST': '',	# Set to empty string for localhost. Not used with sqlite3.
@@ -90,8 +89,7 @@ STATICFILES_DIRS = (
 # Put strings here, like "/home/html/static" or "C:/www/django/static".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-#	'D:/Dane/Dokumenty/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/static',
-	'/home/tobikster/Dokumenty.tmp/Politechnika/Semestr 6/Zaawansowane technologie webowe/Laboratorium/Zakuwaj/static',
+	'C:\Users\Zjamnik\Documents\Politechnika\Semestr 6\Zaawansowane technologie webowe\Zakuwaj\/static',
 )
 
 # List of finder classes that know how to find static files in

@@ -18,15 +18,15 @@
 			</div>
 			<div id="menu">
 				{% block menu %}
-				<dl class="menu">
+				<dl >
 					<dt>MENU</dt>
-						<dd><a class="menu" href="{% url views.index %}">Strona główna</a></dd>
-						<dd><a class="menu" href="{% url words.views.index %}">Nauka</a></dd>
-						<dd><a class="menu" href="{% url django.contrib.auth.views.login %}">Logowanie</a></dd>
+						<dd><a href="{% url views.index %}">Strona główna</a></dd>
+						<dd><a href="{% url words.views.index %}">Nauka</a></dd>
+						<dd><a href="{% url django.contrib.auth.views.login %}">Logowanie</a></dd>
 					<dt>
 {% comment %}
 					<dt>ADMINISTRACJA</dt>
-						<dd><a class="menu" href="{% url opts|admin_urlname:'index' %}">Panel administracyjny</a></dd>
+						<dd><a href="{% url opts|admin_urlname:'index' %}">Panel administracyjny</a></dd>
 					</dt>
 {% endcomment %}
 				</dl>
