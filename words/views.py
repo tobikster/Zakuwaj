@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import ListView, DetailView
 from words.models import WordsSet, Word
 
@@ -14,7 +14,6 @@ class wordsSetDetail(DetailView):
 	model = WordsSet
 	template_name = 'words/wordsSetDetail.html'
 	
-class wordView(DetailView):
-	context_object_name = 'word'
-	model = Word
-	template_name = 'words/wordDetail.html'
+def wordView(request, wordsSetId):
+	word = get_object_or_404(WordsSet, pk = wordsSetId).getRandomWord
+	return render_to_response('words/wordDetail.html', {'word': word})

@@ -9,5 +9,5 @@
 		<li>{{ word }}</li>
 	{% endfor %}
 	</ul>
-	<a href="{% url words.word_view wordsSet.pk %}">Nauka</a>
+	<a href="{% url words.word_view wordsSet.id %}">Nauka</a>
 {% endblock content %}

@@ -1,7 +1,9 @@
-{% extends "index.html %}
+{% extends "index.html" %}
 
 {% block title %}Słówka{% endblock title %}
 
 {% block content %}
 	{{ word }}
+	<p>{{ word.getWord }}</p>
+	<p>{{ word.getTranslation }}</p>
 {% endblock content %}

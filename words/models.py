@@ -19,7 +19,7 @@ class WordsSet(models.Model):
 		return self.word_set
 		
 	def getRandomWord(self):
-		return self.word_set.sort('?pk')[0]
+		return self.word_set.order_by('?')[0]
 
 class Word(models.Model):
 	word = models.CharField(max_length = 255)
