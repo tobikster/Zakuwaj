@@ -17,6 +17,7 @@
 				{{ form.password.label_tag }}
 				{{ form.password }}
 			</span>
+			<input type="hidden" name="next" value="{{ next }}" />
 			<input type="submit" value="Zaloguj" />
 		</form>
 	{% else %}

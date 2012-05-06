@@ -1,9 +1,34 @@
 {% extends "index.html" %}
 
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+	$("div#answer").hide();
+	$("button#goodAnswer").hide();
+	$("button#avaregeAnswer").hide();
+	$("button#badAnswer").hide();
+	$("button#showAnswer").click(function(){
+		$("div#answer").show();
+		$("button#showAnswer").hide();
+		$("button#goodAnswer").show();
+		$("button#avaregeAnswer").show();
+		$("button#badAnswer").show();
+	})
+});
+</script>
+{% endblock scripts %}
+
 {% block title %}Słówka{% endblock title %}
 
 {% block content %}
-	{{ word }}
-	<p>{{ word.getWord }}</p>
-	<p>{{ word.getTranslation }}</p>
+	<div>{{ word.word }}</div>
+	<div id="answer">
+		{{ word.translation }}
+	</div>
+	<div id="controll">
+		<button type="button" id="showAnswer">Pokaż odpowiedź</button>
+		<button type="button" id="goodAnswer">Dobrze</button>
+		<button type="button" id="avaregeAnswer">Średnio</button>
+		<button type="button" id="badAnswer">Źle</button>
+	</div>
 {% endblock content %}

@@ -7,6 +7,8 @@
 <html lang="pl">
 	<head>
 		<link rel="stylesheet" href="{% static 'css/default.css' %}" />
+		<script type="text/javascript" src="{% static 'javascript/jquery-1.7.2.js' %}"></script>
+		{% block scripts %}{% endblock scripts %}
 		<title>
 			{% block title %}Zakuwaj!{% endblock title %}
 		</title>
@@ -33,17 +35,18 @@
 				{% endblock menu %}
 			</div>
 			<div id="content">
-				{% block content %}<span>Treść strony</span>{% endblock content %}
+				{% block content %}
+				<span>
+					Witaj na stronie projektu Zakuwaj!<br />
+					Możesz tu nauczyć się słówek, choć w ograniczonym (jak na razie) zakresie.
+				</span>
+				{% endblock content %}
 			</div>
 			<div id="footer">
 				{% block footer %}
-				<a class="mail" href="mailto:tobikster@gmail.com">Paweł Tobiszewski</a>, <a class="mail" href="mailto:zjamnik@gmail.com">Mateusz Janik</a>
+				<span><a class="mail" href="mailto:tobikster@gmail.com">Paweł Tobiszewski</a>, <a class="mail" href="mailto:zjamnik@gmail.com">Mateusz Janik</a></span>
 				{% endblock footer %}
 			</div>
 		</div>
 	</body>
 </html>
-
-{% comment %}
-	TODO: Menu trzeba przekopiować na inne podstrony (dynamiczne urle)
-{% endcomment %}

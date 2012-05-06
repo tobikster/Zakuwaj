@@ -26,6 +26,7 @@
 *.log
 *.sql
 *.sqlite
+*.swp
 
 # OS generated files #
 ######################
@@ -37,6 +38,7 @@ Thumbs.db
 # Custom files #
 ################
 settings.py
+tags
 
 # Exceptions #
 ##############

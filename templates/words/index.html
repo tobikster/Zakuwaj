@@ -3,9 +3,13 @@
 {% block title %}Słówka{% endblock title %}
 
 {% block content %}
-<ul>
-{% for wordSet in wordsset_list %}
-	<li><a href="{% url words.words_set_detail wordSet.id %}">{{ wordSet }}</a></li>
-{% endfor %}
-</ul>
+{% if wordsset_list|length > 0 %}
+	<ul>
+		{% for wordSet in wordsset_list %}
+			<li><a href="{% url words.words_set_detail wordSet.id %}">{{ wordSet }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<span>Aktualnie nie ma żadnych zestawów słówek!</span>
+{% endif %}
 {% endblock content %}
