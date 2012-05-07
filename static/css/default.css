@@ -15,6 +15,12 @@ a:hover
 {
 	color: #0000FF;
 }
+
+a#banner
+{
+	text-decoration: none;
+	color: #000000;
+}
 	
 div#menu a, div#footer a
 {

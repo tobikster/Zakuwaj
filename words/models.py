@@ -24,7 +24,6 @@ class WordsSet(models.Model):
 class Word(models.Model):
 	word = models.CharField(max_length = 255)
 	translation = models.CharField(max_length = 255)
-	probability = models.DecimalField(max_digits = 3, decimal_places = 2)
 	wordSet = models.ForeignKey(WordsSet)
 	
 	def __unicode__(self):

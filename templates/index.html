@@ -16,30 +16,29 @@
 	<body>
 		<div id="site">
 			<div id="header">
-				{% block header %}ZAKUWAJ!{% endblock header %}
+				{% block header %}<a id="banner" href="/">ZAKUWAJ!</a>{% endblock header %}
 			</div>
 			<div id="menu">
 				{% block menu %}
 				<dl >
 					<dt>MENU</dt>
-						<dd><a class="menu" href="{% url views.index %}">Strona główna</a></dd>
-						<dd><a class="menu" href="{% url words.words_sets_list %}">Nauka</a></dd>
-						<dd><a class="menu" href="{% url login %}">Logowanie</a></dd>
-					<dt>
-{% comment %}
+					<dd><a class="menu" href="{% url views.index %}">Strona główna</a></dd>
+					<dd><a class="menu" href="{% url words.words_sets_list %}">Nauka</a></dd>
+					{% if user.is_authenticated %}
+						<dd><a class="menu" href="{% url logout %}">Wyloguj: {{ user.username }}</a></dd>
+					{% else %}
+						<dd><a class="menu" href="{% url login %}">Zaloguj</a></dd>
+					{% endif %}
+					{% if perms.admin %}
 					<dt>ADMINISTRACJA</dt>
-						<dd><a href="{% url opts|admin_urlname:'index' %}">Panel administracyjny</a></dd>
-					</dt>
-{% endcomment %}
-				</dl>
+					<dd><a href="/admin">Panel administracyjny</a></dd>
+					</dl>
+					{% endif %}
 				{% endblock menu %}
 			</div>
 			<div id="content">
 				{% block content %}
-				<span>
-					Witaj na stronie projektu Zakuwaj!<br />
-					Możesz tu nauczyć się słówek, choć w ograniczonym (jak na razie) zakresie.
-				</span>
+				<span>Witaj na stronie projektu Zakuwaj!  Możesz tu nauczyć się słówek, choć w ograniczonym (jak na razie) zakresie.</span>
 				{% endblock content %}
 			</div>
 			<div id="footer">

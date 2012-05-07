@@ -3,11 +3,15 @@
 {% block title %}Słówka{% endblock title %}
 
 {% block content %}
-	<h1>{{ wordsSet }}</h1>
-	<ul>
-	{% for word in wordsSet.getWords.all %}
-		<li>{{ word }}</li>
-	{% endfor %}
-	</ul>
-	<a href="{% url words.word_view wordsSet.id %}">Nauka</a>
+	{% if wordsSet != None %}
+		<h1>{{ wordsSet.name }}</h1>
+		<ul>
+		{% for word in wordsSet.getWords.all %}
+			<li>{{ word }}</li>
+		{% endfor %}
+		</ul>
+		<a href="{% url words.word_view wordsSet.id %}">Nauka</a>
+	{% else %}
+		<span>Nie masz uprawnień, aby uczyć się tego zestawu!</span>
+	{% endif %}
 {% endblock content %}
