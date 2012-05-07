@@ -21,7 +21,7 @@ $(document).ready(function(){
 {% block title %}Słówka{% endblock title %}
 
 {% block content %}
-	<div>{{ word.word }}</div>
+	<div>{{ word.word }} [{{ prob }}]</div>
 	<div id="answer">
 		{{ word.translation }}
 	</div>

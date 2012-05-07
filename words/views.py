@@ -27,28 +27,39 @@ def wordsSetDetail(request, wordsSetId):
 	
 @login_required
 def wordView(request, wordsSetId):
-	if 'words' not in request.session or 'reset' in request.GET:
+	if 'reset' in request.GET or 'words' not in request.session:
 		try:
 			del request.session['words']
 		except KeyError:
 			pass
-
-		words = []	
+		words = {}
 		for word in get_object_or_404(WordsSet, pk = wordsSetId).word_set.all():
-			words.append((word.pk, 1.0))
-		
+			words[word.pk] = 1.0
 		request.session['words'] = words
+	probability = None
+	if 'currentWordId' in request.session:
+		if 'answer' in request.GET:
+			probability = request.session['words'][request.session['currentWordId']]
+			if request.GET['answer'] == 'good':
+				probability = probability * 0.1
+			elif request.GET['answer'] == 'avg':
+				pass
+			elif request.GET['answer'] == 'bad':
+				probability = probability * 5.0
+				request.session['words'][request.session['currentWordId']] = probability
+		else:
+			del request.session['currentWordId']
 
 	try:
 		probabilitySum = 0.0
-		for (wordId, prob) in request.session['words']:
+		for prob in request.session['words'].viewvalues():
 			probabilitySum += prob
-
 		rand = random.uniform(0, probabilitySum)
-		for (wordId, prob) in request.session['words']:
+		for (wordId, prob) in request.session['words'].viewitems():
 			rand -= prob
 			if rand <= 0:
 				resultId = wordId
+				request.session['currentWordId'] = resultId
 				break
 		else:
 			resultId = -1 #Wyjatek!
@@ -56,4 +67,4 @@ def wordView(request, wordsSetId):
 		pass
 
 	word = get_object_or_404(Word, pk = resultId)
-	return render_to_response('words/wordDetail.html', {'word': word}, context_instance = RequestContext(request))
+	return render_to_response('words/wordDetail.html', {'word': word, 'prob': probability}, context_instance = RequestContext(request))
