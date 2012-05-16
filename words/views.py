@@ -30,7 +30,6 @@ def wordsSetDetail(request, wordsSetId):
 
 @login_required
 def wordView(request, wordsSetId):
-	print request.session['word']['currentWordId']
 	if 'clear' in request.GET:
 		if 'word' in request.session:
 			del request.session['word']
@@ -40,23 +39,28 @@ def wordView(request, wordsSetId):
 			'probabilities': {},
 			'currentWordId': -1,
 		}
+
+	print 'Przed:'
 	print request.session['word']
 
 	if 'word' in request.session:
-		if 'reset' in request.GET or 'words' not in request.session['word']:
+		if 'reset' in request.GET or 'probabilities' not in request.session['word']:
 			request.session['word']['probabilities'] = {}
 			request.session['word']['currentWordId'] = -1
 			for word in get_object_or_404(WordsSet, pk = wordsSetId).word_set.all():
 				request.session['word']['probabilities'][word.pk] = 1.0
 		if 'currentWordId' in request.session['word']:
-			if 'answer' in request.GET:
+			print 'request.GET:', request.GET
+			print 'request.session["word"]["currentWordId"]:', request.session['word']['currentWordId']
+			if 'answer' in request.GET and request.session['word']['currentWordId'] != -1:
 				probability = request.session['word']['probabilities'][request.session['word']['currentWordId']]
 				if request.GET['answer'] == 'good':
-					probability = probability * 0.1
+					probability = probability * 0.8
 				elif request.GET['answer'] == 'avg':
-					pass
+					probability = probability * 1.05
 				elif request.GET['answer'] == 'bad':
-					probability = probability * 10.0
+					probability = probability * 1.2
+				print 'probability:', probability
 				request.session['word']['probabilities'][request.session['word']['currentWordId']] = probability
 			else:
 				request.session['word']['currentWordId'] = -1
@@ -72,7 +76,9 @@ def wordView(request, wordsSetId):
 					request.session['word']['currentWordId'] = wordId
 					break
 	word = get_object_or_404(Word, pk = request.session['word']['currentWordId'])
-	print request.session['word']['currentWordId']
+	print 'Po:'
+	print request.session['word']
+	request.session.modified = True
 	return render_to_response('words/wordDetail.html', {'word': word}, context_instance = RequestContext(request))
 
 #@login_required
