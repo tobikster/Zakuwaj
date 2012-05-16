@@ -27,8 +27,10 @@ $(document).ready(function(){
 	</div>
 	<div id="controll">
 		<button type="button" id="showAnswer">Pokaż odpowiedź</button>
-		<button type="button" id="goodAnswer">Dobrze</button>
-		<button type="button" id="avaregeAnswer">Średnio</button>
-		<button type="button" id="badAnswer">Źle</button>
+		<form method="get">
+			<button type="submit" id="goodAnswer" name="answer" value="good">Dobrze</button>
+			<button type="submit" id="avaregeAnswer" name="answer" value="avg">Średnio</button>
+			<button type="submit" id="badAnswer" name="answer" value="bad">Źle</button>
+		</form>
 	</div>
 {% endblock content %}
