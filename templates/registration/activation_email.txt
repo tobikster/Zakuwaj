@@ -1,0 +1,11 @@
+Witam,
+otrzymaliśmy prośbę o utworzenie konta w serwisie Zakuwaj! Jeżeli nie
+tworzyłeś tam konta, zignoruj tą wiadomość.
+
+Aby móc korzystać z konta, musisz w ciągu {{ expiration_days }} dni od daty
+otrzymania tego mail aktywować swoje konto klikając w poniższy link:
+http://127.0.0.1:8000{% url registration_activate activation_key %}.
+
+--
+tobikster
+Zjamnik
