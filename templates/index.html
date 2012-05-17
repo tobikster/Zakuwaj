@@ -29,11 +29,12 @@
 					{% else %}
 						<dd><a class="menu" href="{% url login %}">Zaloguj</a></dd>
 					{% endif %}
+						<dd><a class='menu' href="{% url registration_register %}">Zarejestruj</a></dd>
 					{% if perms.admin %}
 					<dt>ADMINISTRACJA</dt>
 					<dd><a href="/admin">Panel administracyjny</a></dd>
-					</dl>
 					{% endif %}
+				</dl>
 				{% endblock menu %}
 			</div>
 			<div id="content">
