@@ -4,7 +4,8 @@
 
 {% block content %}
 <form method="post">{% csrf_token %}
-{{ form.as_p }}
-<input type="reset" value="Reset" />
-<input type="submit" value="Rejestracja" />
+  {{ form.as_p }}
+  <input type="reset" value="Reset" />
+  <input type="submit" value="Rejestracja" />
+</form>
 {% endblock content %}
